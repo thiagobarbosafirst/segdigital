@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html ng-app="sistemaApp">
+<head>
+<meta charset="UTF-8">
+
+<title>Sistema Segurança Digital</title>
+</head>
+<body ng-controller="sistemaController" ng-init=inicio()>
+<div class="cabecalhoPagina">
+	<h2>{{tipoTela}} Sistema</h2>
+</div>
+<div id="" class="alert {{tipoAlerta}}" ng-show="mensagemBool">
+	<strong>{{mensagem}}</strong>
+</div>
+<section>
+	<div class="panel-group">
+		<div class="panel-group">
+			<div class="panel-body">
+				<form>
+					<div class="form-group row">
+			    		<label for="inputSigla" class="col-sm-2 col-form-label labelsForInputs">Sigla</label>
+			   			<div class="col-sm-8">
+			      			<input type="text" class="form-control" id="inputSigla" ng-model="sistemaDto.sigla">
+			    		</div>
+			  		</div>
+					<div class="form-group row">
+						<label for="email-atendimento" class="col-sm-2 col-form-label labelsForInputs">E-mail de atendimento do sistema</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" id="email-atendimento" maxlength="100" p
+								ng-model="sistemaDto.email" laceholder="name@dominio.com">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="url" class="col-sm-2 col-form-label labelsForInputs">URL</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" id="url" ng-model="sistemaDto.url" maxlength="50">
+						</div>	
+					</div>
+					<div class="form-group row">
+						<label for="descricao" class="col-sm-2 col-form-label labelsForInputs">Descrição</label>
+						<div class="col-sm-8">
+							<textarea class="form-control" id="descricao" maxlength="100" required="required" ng-model="sistemaDto.descricao" rows="3"></textarea>
+						</div>
+					</div>
+					<br>
+					<div class="form-group">
+						<button type="button" class="btn btn-primary" ng-show="!isCadastro">Pesquisar</button>
+						<button type="button" class="btn btn-info" ng-show="!isCadastro" ng-click="limparCampos()">Limpar</button>
+						<button type="button" class="btn btn-info" ng-show="!isCadastro"  ng-click="chamarCadastro()">Novo Sistema</button>
+						<button type="button" class="btn btn-info" ng-show="isCadastro" ng-click="telaPesquisa()">Voltar</button>
+						<button type="button" class="btn btn-primary" ng-click="saveSistema()" 
+								value="Salvar" ng-show="isCadastro">Salvar</button>
+					</div>
+				</form>
+			</div>
+			<div ng-if="!isCadastro">
+				<div class="tituloListagem">
+					<h3>Resultado da Pesquisa</h3>
+				</div>
+				<table class="table">
+					<thead>
+						<tr class="bg-primary">
+							<th>Descrição</th>
+							<th>Sigla</th>
+							<th>E-mail de Atendimento</th>
+							<th>URL</th>
+							<th>Status</th>
+							<th>Ações</th>
+						</tr>
+					</thead>
+					<tbody  ng-repeat="sistema in resultSistemas">
+						<td>{{sistema.descricao}}</td>
+						<td>{{sistema.sigla}}</td>
+						<td>{{sistema.email}}</td>
+						<td>{{sistema.url}}</td>
+						<td>{{sistema.status}}</td>
+						<td>
+							<a href="#" >
+								<i class="material-icons">edit</i>
+							</a>
+						</td>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</section>
+</body>
+<script type="text/javascript" src="../../js/lib/angular.min.js"></script>
+<script type="text/javascript" src="../../js/lib/ui-bootstrap-tpls-2.5.0.min.js"></script>
+<script type="text/javascript" src="../../js/app/app.js"></script>
+<script type="text/javascript" src="../../js/app/sistemaController.js"></script>
+<script type="text/javascript" src="../../js/app/sistemaService.js"></script>
+<link rel="stylesheet" href="../../css/lib/bootstrap.min.css"/>
+<link rel="stylesheet" href="../../css/lib/sistema.css"/>
+<link rel="stylesheet" href="../../css/app/app.css"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</html>

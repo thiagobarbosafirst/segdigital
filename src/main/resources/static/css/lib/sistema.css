@@ -1,0 +1,18 @@
+.cabecalhoPagina {
+	 background-color: #4fbfde;
+	 text-align: center;
+	 font-family: Georgia;
+	 font-style: italic;
+}
+
+.tituloListagem {
+	 background-color: #4fbfde;
+	 text-align: center;
+	 font-family: Georgia;
+	 font-style: italic;
+}
+
+.labelsForInputs {
+	font-family: Georgia;
+	font-size: 10;
+}

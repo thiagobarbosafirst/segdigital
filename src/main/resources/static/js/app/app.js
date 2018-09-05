@@ -1,0 +1,1 @@
+var app = angular.module("sistemaApp", ['ui.bootstrap', 'sistemaApp.controllers', 'sistemaApp.services']);

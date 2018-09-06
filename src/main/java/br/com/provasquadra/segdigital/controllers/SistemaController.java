@@ -29,7 +29,7 @@ public class SistemaController {
 		return sistemaService.findAll();
 	}
 	
-	@GetMapping("/getSistemas{descricao}")
+	@GetMapping("/getSistemas/{descricao}")
 	public List<Sistema> getDescricao(@PathVariable String descricao) {
 		return sistemaService.findByDescricao(descricao);
 	}

@@ -92,8 +92,8 @@ module.controller("sistemaController", ["$scope", "$timeout", "sistemaService",
 				});
 			}
 			
-			$scope.pesquisatSistema = function() {
-				sistemaService.getSistemasByDescricao($scope.sistemaDto).then(function(value) {
+			$scope.pesquisarSistema = function() {
+				sistemaService.getSistemasByDescricao($scope.sistemaDto.descricao).then(function(value) {
 					console.log("pesquisando");					
 					$scope.resultSistemas = value.data;
 				}, function(reason) {
